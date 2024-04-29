@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/devongayjr./Documents/CSC229-work/javafx-sdk-22.0-2.1/**/*.jar"
+    ]
+}
