@@ -1,0 +1,17 @@
+# JavaFX-specific files and directories
+.settings/
+bin/
+out/
+build/
+*.jar
+
+# IDE/Editor-specific files
+.vscode/
+.idea/
+.classpath
+.project
+
+# Other generated files
+*.class
+*.log
+*.tmp
