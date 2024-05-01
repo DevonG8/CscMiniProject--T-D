@@ -1,5 +1,6 @@
 public class RoomWithMachinePart extends Room{
     Part machinePart;
+    private int number;
 
     //contructor takes room number and obj or type part
     public RoomWithMachinePart(int number, Part obj ){   
@@ -12,9 +13,11 @@ public class RoomWithMachinePart extends Room{
         return machinePart;
     }
 
-    //collectPart takes a Player as parameter; checks if last part has
-    //been collected 
+    //collectPart takes a Player as parameter
     public Part collectPart(Player player){
+        /*checks if the last Part
+        collected by the player sent as an argument is the one right before the it has. If so, it
+        returns the one it has (machinePart); otherwise, it returns null; */
 
     }
     
@@ -25,7 +28,8 @@ public class RoomWithMachinePart extends Room{
     }
 
     //helpMessage returns a help message with room number 
+    @Override
     public String helpMessage(){
-        return ("help me...");
+        return ("You are in room " +number);
     }
 }
