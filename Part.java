@@ -14,7 +14,7 @@ public class Part {
      * @param partNumber
      */
     public Part(int partNumber){
-        number = partNumber;
+        this.number = partNumber;
     }
 
     /**
