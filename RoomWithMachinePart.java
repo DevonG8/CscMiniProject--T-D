@@ -8,11 +8,24 @@ public class RoomWithMachinePart extends Room{
     }
 
     //getter for machinePart
+    public Part getMachinePart(){
+        return machinePart;
+    }
 
     //collectPart takes a Player as parameter; checks if last part has
     //been collected 
+    public Part collectPart(Player player){
+
+    }
     
     //hasPart overrides hasPart of Room and returns true 
+    @Override
+    public boolean hasPart(){
+        return true;
+    }
 
     //helpMessage returns a help message with room number 
+    public String helpMessage(){
+        return ("help me...");
+    }
 }
