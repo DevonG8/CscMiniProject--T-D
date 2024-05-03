@@ -6,7 +6,7 @@
  * It will contain no additional data members
  * 
  * @author Antonio Cavanaugh Lillo
- * @version 1.0
+ * @version 1.1
  *
  */
 
@@ -19,20 +19,20 @@ public class RoomWithTools extends Room {
      * 
      */
     public RoomWithTools(int number) {
-        
+
         super(number);
 
     }
 
     /**
-     * Overrides isWorkshop() of class Room
+     * Overrides hasTools() of class Room
      * @return ture
      * @param none 
      * 
      */
     @Override
-    public boolean isWorkshop() {
-
+    public boolean hasTools() {
+        
         return true; 
 
     }
