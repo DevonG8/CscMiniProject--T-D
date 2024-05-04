@@ -4,21 +4,31 @@
  * machine. 
  * 
  * @author Antonio Cavanaugh Lillo
- * @version 1.0
+ * @version 1.2
  * 
  * 
  */
 public class Workshop extends Room {
 
-    //argument constructor method, room # as parameter
-
+    /**
+     * This method is the argument constructor and will take the room
+     * number from the superclass Room as it's parameter. 
+     * @param number
+     * 
+     */
     public Workshop(int number) {
         //inherits room number
          super(number);
     }
 
-    //This method is what makes this room 'contain' the workshop in game.
-    //isWorkshop() method overriding isWorkshop of Room returning true
+   
+    /**
+     * Overrides isWorkshop() of class Room. 
+     * Determines whether this is the room with the workshop or not
+     * 
+     * @return true
+     * 
+     */
     @Override
     public boolean isWorkshop() {
         return true;

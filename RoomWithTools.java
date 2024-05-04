@@ -6,7 +6,7 @@
  * It will contain no additional data members
  * 
  * @author Antonio Cavanaugh Lillo
- * @version 1.1
+ * @version 1.2
  *
  */
 
@@ -26,8 +26,9 @@ public class RoomWithTools extends Room {
 
     /**
      * Overrides hasTools() of class Room
+     * Determines whether the room has tools or not in game.
+     * 
      * @return true
-     * @param none 
      * 
      */
     @Override
