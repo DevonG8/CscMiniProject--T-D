@@ -26,7 +26,7 @@ public class RoomWithTools extends Room {
 
     /**
      * Overrides hasTools() of class Room
-     * @return ture
+     * @return true
      * @param none 
      * 
      */
