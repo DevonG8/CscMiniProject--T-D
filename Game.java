@@ -2,7 +2,7 @@
  * This class holds the whole game and its components (the two players and 10 rooms). 
  * This class should be instantiated in the main application class 
  * @author Antonio Cavanaugh Lillo
- * @version 1.1
+ * @version 1.2
  * 
  */
 
@@ -65,9 +65,42 @@ public class Game {
 	//
 	//Call setupDoors
 
-	public Game(Player[] players, Room[] rooms, Player currentPlayer) {
+	public Game(Player[] players, Room[] rooms) {
 
-		Room rooms[] =
+		this.players = players;
+		this.rooms = rooms;
+
+		for (int r = 0; r < rooms.length; r++) {
+			switch(r) {
+				case 9:
+					rooms[r] = new Workshop(10);
+					break;
+				case 7:
+					rooms[r] = new RoomWithTools(8);
+					break;
+				case 3:
+					//Room with part 3
+					rooms[r] = new RoomWithMachinePart(2,);
+					break;
+				case 5:
+					//Room with part 4
+					rooms[r] = new RoomWithMachinePart(6,);
+					break;
+				case 4:
+					//Room with part 2
+					rooms[r] = new RoomWithMachinePart(5,);
+					break;
+				case 2:
+					//Room with part 1
+					rooms[r] = new RoomWithMachinePart(3,);
+					break;
+
+				default:
+					rooms[r] = new Room(r);
+
+
+			}
+		}
 
 		setupDoors();
 
