@@ -82,6 +82,7 @@ public class Maze extends Application {
 
     //launch the game
     public static void main(String[] args) {
-        launch(args);
+
+        launch(args); //lauches the maze game application
     }
 }
