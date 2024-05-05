@@ -59,7 +59,7 @@ public class Game {
 	//
 	//Create the rooms array
 	//
-	//Create the Room objets inside the rooms array,
+	//Create the Room objects inside the rooms array,
 	//based on their types on the map and using the constructor of the
 	//subclasses you will create(d)
 	//
@@ -73,15 +73,17 @@ public class Game {
 		for (int r = 0; r < rooms.length; r++) {
 			switch(r) {
 				case 9:
+					//If room 10 then it's the room with the Workshop
 					rooms[r] = new Workshop(10);
 					break;
 				case 7:
+					//If room 8 then it's the room that contains Tools
 					rooms[r] = new RoomWithTools(8);
 					break;
 				case 3:
 					//Room with part 3
-					rooms[r] = new RoomWithMachinePart(2,);
-					break;
+					rooms[r] = new RoomWithMachinePart(2,);		//FIX: Figure out what parameter is given to determine which Part it is
+					break;												//Contingent on Part Class implementation
 				case 5:
 					//Room with part 4
 					rooms[r] = new RoomWithMachinePart(6,);
@@ -96,14 +98,14 @@ public class Game {
 					break;
 
 				default:
-					rooms[r] = new Room(r);
+					//otherwise the room is just a regular room with its room number //check if counter is correct.. unsure
+					rooms[r] = new Room(r+1);
 
 
 			}
 		}
 
-		setupDoors();
-
+		setUpDoors(); //SETS DIRECTIONALITY FOR THE ROOMS IN THE GAME MAZE
 	}
 
 	//Create the two Player objects and store them in array players
