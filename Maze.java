@@ -1,20 +1,4 @@
-/**
- * "This is the main class that will either:
- * 
- * - extend JavaFx Application class, builds the GUI and a set of nested classes
- * to handle the ActionEvent of each the buttons the player can click 
- * OR
- * - Read player text commands then interpret them
- * 
- * Either way, this class will instaniate the Game class, call the different
- * methods in the currentPlayer object (currrentPlayer is part of Game) to advance the game.
- * It should also display to the player the message it is receiving from these methods"
- * 
- * 
- */
-
-//Going to need javafx import references and dependencies
-
+//JavaFx imports and references for GUI
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -29,12 +13,25 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-
+/**
+ * This is the Maze class, which will extend the Application class. 
+ * The Maze class will build the GUI of the game and create a set
+ * of nested classes to handle the players action events (buttons).
+ * 
+ * This class will instaniate the Game class and handle switching
+ * which player's turn it currently is by calling the method currentPlayer...
+ * as well as displaying the respective messages in correlation to chosen action.
+ * 
+ * @author Antonio Cavanaugh Lillo
+ * @version 1.1
+ * 
+ */
 public class Maze extends Application {
 
+    //Organized Maze class member variable declarations
     private Game game;
     private GridPane gridPane;
-    pr
+    
 
     private Button upButton;
     private Button leftButton;
@@ -48,25 +45,38 @@ public class Maze extends Application {
     private Button restartButton;
 
     private TextField textMessages;
-    private TextField textInput;
+    private TextField textOutput;
 
     
     public void start(Stage applicationStage) throws Exception {
 
+        //Declaration of 
+        Scene scene = null;
+        GridPane gridPane = null;
 
-        Scene scene = new Scene();
-        applicationStage.setScene(scene);
-        applicationStage.setTitle("Maze");
-        applicationStage.show();
+        gridPane = new GridPane();
+        scene = new Scene(gridPane, 600, 600);
+
+        //Instantiates rooms (10 rooms) and two players of respect class
+        Room[] rooms = new Room[10];
+        Player[] players = new Player[2];
+
+
+
+        applicationStage.setScene(scene);   //Set the games window scene
+
+        applicationStage.setTitle("Maze");  //Set the games window title
+
+        applicationStage.show();            //Display the game GUI
     }
     
 
 
-//Needs a GUI builder
+    //Needs a GUI builder
 
 
 
-//Maybe error handling?
+    //Maybe error handling?
 
 
 
