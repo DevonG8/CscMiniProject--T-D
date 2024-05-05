@@ -1,11 +1,11 @@
 public class Player {
     private int number;
-    private int currentRoom;
+    private Room currentRoom;
     private boolean toolsCollected;
     private int lastMachinePartCollected;
 
-    public Player(int number, int room){
+    public Player(int number, Room currentRoom){
         this.number = number;
-        this.currentRoom = room;
+        this.currentRoom = currentRoom;
     }
 }
