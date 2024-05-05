@@ -4,8 +4,8 @@ public class RoomWithMachinePart extends Room{
 
     //contructor takes room number and obj or type part
     public RoomWithMachinePart(int number, Part obj ){   
-    super(number);
-    this.machinePart = obj;
+        super(number);
+        this.machinePart = obj;
     }
 
     //getter for machinePart
