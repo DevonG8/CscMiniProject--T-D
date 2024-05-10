@@ -38,7 +38,8 @@ public class Player {
     }
 
     /**
-     * 
+     * Takes a direction and lets person enter new room if there is one in
+     * the inputted direction
      * @param Direction
      * @return
      */
@@ -48,20 +49,51 @@ public class Player {
 
         //if new room not there print meassge else put player in new room and print message 
         if(newRoom == null){
-            return ("There is no room in this direction");
+            return ("No door in this direction");
         }else{  
             currentRoom = newRoom;
             return currentRoom.printMessage();
         }
     }
-    // public String collectPart(){
-    //     //check if possible to collect part
-    //     if(currentRoom.hasPart == null){
 
-    //     }
+    /**
+     * Checks if it is possible to collect part from currentRoom
+     * if so collects part if not prints message indicating so 
+     * @return
+     */
+    public String collectPart(){
+        Part part = null;
+        if(currentRoom instanceof RoomWithMachinePart){
+            part = ((RoomWithMachinePart) currentRoom).getMachinePart();
+        }
 
-    //     //if can collect set boolean true adn return string
+        if(part == null ){  //find other 
+            return "Cannot collect part";
+        }else{
+            lastMachinePartCollected = part;
+            return "You have successfully collected part " + part.getNumber();
+        }
+    }
 
-    //     //otherwise return different string 
-    // }
+    /**
+     * checks if its possible to collect tool from currentRoom then collects
+     * else displays message indicating error in collection
+     * @return
+     */
+    public String collectTools(){
+        //check if it is possible to collect tooms from current room 
+        if(currentRoom.hasTools() == true && !toolsCollected ){
+            toolsCollected = true;
+            return "You have succesfully collected tools";
+        }else if(currentRoom.hasTools() == true && toolsCollected == true){
+            return "Tools already collected";            
+        }else{
+            return "Room does not have tools";
+        }
+    }
+
+    public String build(){
+
+    }
+    
 }
