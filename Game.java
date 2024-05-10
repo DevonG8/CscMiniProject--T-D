@@ -65,7 +65,10 @@ public class Game {
 	//
 	//Call setupDoors
 
-	public Game(Player[] players, Room[] rooms) {
+	//This constructor will either instanitate a Workshop obj, RoomWithTools obj, 
+	//a regular room, or the RoomWithMachinePart. The constructor call to RoomWithMachinePart
+	//will take the room number and objPart (a Part class object) to determine which Part is present
+	public Game(Player[] players, Room[] rooms, Part objPart) {
 
 		this.players = players;
 		this.rooms = rooms;
@@ -82,19 +85,19 @@ public class Game {
 					break;
 				case 3:
 					//Room with part 3
-					rooms[r] = new RoomWithMachinePart(2,);		//FIX: Figure out what parameter is given to determine which Part it is
-					break;												//Contingent on Part Class implementation
+					rooms[r] = new RoomWithMachinePart(2, objPart);		
+					break;												
 				case 5:
 					//Room with part 4
-					rooms[r] = new RoomWithMachinePart(6,);
+					rooms[r] = new RoomWithMachinePart(6, objPart);
 					break;
 				case 4:
 					//Room with part 2
-					rooms[r] = new RoomWithMachinePart(5,);
+					rooms[r] = new RoomWithMachinePart(5, objPart);
 					break;
 				case 2:
 					//Room with part 1
-					rooms[r] = new RoomWithMachinePart(3,);
+					rooms[r] = new RoomWithMachinePart(3, objPart);
 					break;
 
 				default:
@@ -104,8 +107,12 @@ public class Game {
 
 			}
 		}
+		
+		try {
+			setUpDoors(); //SETS DIRECTIONALITY FOR THE ROOMS IN THE GAME MAZE
+		} catch(Exception e) {
 
-		setUpDoors(); //SETS DIRECTIONALITY FOR THE ROOMS IN THE GAME MAZE
+		}
 	}
 
 	//Create the two Player objects and store them in array players
