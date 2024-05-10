@@ -110,10 +110,12 @@ public class Game {
 		
 		try {
 			setUpDoors(); //SETS DIRECTIONALITY FOR THE ROOMS IN THE GAME MAZE
-		} catch(Exception e) {
-
+		} catch(Exception e){
+			System.err.println("ERROR: There seems to have been an error with setting up the doors and rooms: %s".formatted(e.getMessage()));
 		}
+
 	}
+	
 
 	//Create the two Player objects and store them in array players
 	//and set the curretn room for each player ot be rooms[0]
