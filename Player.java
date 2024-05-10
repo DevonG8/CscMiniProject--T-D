@@ -92,8 +92,19 @@ public class Player {
         }
     }
 
+    /**
+     * checks if player has qualifications to win game if not 
+     * prints message indicating error
+     * @return
+     */
     public String build(){
-
+        if(lastMachinePartCollected != null && toolsCollected == true && currentRoom.isWorkshop()){
+            return "Congratulations, you've won the game!!!!";
+        }else if(lastMachinePartCollected != null && toolsCollected == true && !currentRoom.isWorkshop()){
+            return "You are not in the workshop";
+        }else{
+            return "you do not have all the parts needd to build machine";
+        }
     }
     
 }
