@@ -1,25 +1,43 @@
 /**
- * This class holds the whole game and its components (the two players and 10 rooms). 
- * This class should be instantiated in the main application class 
+ * The class Game holds the entirity of the game and its components (two players & 10 rooms);
+ * Game class be instantiated in the main application class.
+ * It will be responsible for setting up the players, the rooms, the doors (pathways to and from each room)
+ * as well as switching between players for each turn and ofcourse initiating the actual game.
+ * 
  * @author Antonio Cavanaugh Lillo
- * @version 1.2
+ * @version 2.1
  * 
  */
 
 public class Game {
+
+	/**
+	 * The players array with hold two Player objects @see Player.java
+	 */
 	private Player[] players;
+
+	/**
+	 * The rooms array will hold the 10 Room objects and it's respective subclasses...
+	 * @see Room.java
+	 */
 	private Room[] rooms;
+
+	/**
+	 * This is a pointer to whoevers (which player) turn it is, one of the two Player objects
+	 * @see Player.java 
+	 */
 	private Player currentPlayer;
 
 	   /**
-	    * Assuming that Rooms has been initialized in the constructor 
-	    * to hold 10 objects of type Room or a subclass of Room, this method 
-	    * sets up the doors between the rooms, as described in the map
+	    * Assuming that Rooms[] has been initialized in the constructor 
+	    * correctly without an error, setUpDoors() will handle the
+	    * directionality of the map and determine which rooms(and its doors) lead to which rooms.
+		*
 	    * @return void
 	    * @throws Exception if inconsistencies found by setDoor
 	    */
-	
 	private void setUpDoors() throws Exception {
+
 		rooms[0].setDoor(Direction.up, rooms[3]);
 		rooms[0].setDoor(Direction.left, rooms[8]);
 		
@@ -54,29 +72,36 @@ public class Game {
 
 	}
 
-	//Constructor
-	//Create the players array (not the Player objects inside it)
-	//
-	//Create the rooms array
-	//
-	//Create the Room objects inside the rooms array,
-	//based on their types on the map and using the constructor of the
-	//subclasses you will create(d)
-	//
-	//Call setupDoors
-
-	//This constructor will either instanitate a Workshop obj, RoomWithTools obj, 
-	//a regular room, or the RoomWithMachinePart. The constructor call to RoomWithMachinePart
-	//will take the room number and objPart (a Part class object) to determine which Part is present
+	/**
+	 * This is the Game constructor, it will create a new instance of Game with the
+	 * two new instances of players, assign the rooms in the rooms array(and type of room) based on number, 
+	 * and finally also setting up the doors calling the setUpDoors() method where they
+	 * lead in the map if there is no error produced in setting up the doors.
+	 * 
+	 * 
+	 * @param players
+	 * @param rooms
+	 * @param objPart
+	 * @throws Exception #If doors are not setup properly!
+	 */
 	public Game(Player[] players, Room[] rooms, Part objPart) {
-
+		/**
+		 * Instantiates the players and rooms array
+		 */
 		this.players = players;
 		this.rooms = rooms;
 
+		/**
+		 * This loop assigns the rooms which type of room class they are based on
+		 * the number the room is in the rooms array.
+		 */
 		for (int r = 0; r < rooms.length; r++) {
 			switch(r) {
+
+				/**
+				 * When index r in the length of the rooms array is 9, it is pointing to the 10th room (Workshop)
+				 */
 				case 9:
-					//If room 10 then it's the room with the Workshop
 					rooms[r] = new Workshop(10);
 					break;
 				case 7:
@@ -101,34 +126,43 @@ public class Game {
 					break;
 
 				default:
-					//otherwise the room is just a regular room with its room number //check if counter is correct.. unsure
+					
+					//When it's any other room than the ones specified above, it's index r + 1 to point to actual room number
+					//Example: Index r=0 is actually Room 1. Index r=1 is actually Room 2.
 					rooms[r] = new Room(r+1);
-
-
 			}
 		}
 		
+		//Error handler in the event something is not set up correctly in the doors.
 		try {
-			setUpDoors(); //SETS DIRECTIONALITY FOR THE ROOMS IN THE GAME MAZE
+			//Sets the directionality of the game map, so: which door leads to which room.
+			setUpDoors();
+
 		} catch(Exception e){
+
 			System.err.println("ERROR: There seems to have been an error with setting up the doors and rooms: %s".formatted(e.getMessage()));
 		}
 
 	}
 	
 
-	//Create the two Player objects and store them in array players
-	//and set the curretn room for each player ot be rooms[0]
-	//
-	//Set the currentPlayers to be players[0]
+	
+	/*
+	 * Creates the players that will play the game & desginating which player is which, 
+	 * where the players begin on the map and assigns the current turn to Player 1.
+	 * 
+	 */
 	public void InitGame() {
 
-		//create two Player objects and store them in array players and assign number from class Player
+		
+		//Creates the two Player objects with the respective player number,
+		//also places the players in Room 1 to begin the game.
+		 
 		Player playerOne = new Player(1, rooms[0]);
 
 		Player playerTwo = new Player(2, rooms[0]);
 
-		//Assign respective players array to their respective player
+		//Player one is the first player in the index, player two is the second index in the players[] array.
 		players[0] = playerOne;
 
 		players[1] = playerTwo;
@@ -138,14 +172,19 @@ public class Game {
 
 	}
 
-	//Getter method for getting whos turn it is
+	/**
+	 * Getter method for getting whos turn it is
+	 * @return currentPlayer
+	 */
 	public Player getCurrentPlayer() {
 
 		return currentPlayer;
 
 	}
 
-	//Switches the current player (the players array element pointed to by currentPlayer)
+	/**
+	 * Switches the current player (the players array element pointed to by currentPlayer)
+	 */
 	public void switchPlayer() {
 		if (currentPlayer == players[1]) {
 			//If it is (was) player 2s turn, it's now player 1s turn
@@ -155,9 +194,6 @@ public class Game {
 			//If it was player 1s turn, now it's player 2s turn.
 			currentPlayer = players[1];
 		}
-
 	}
-
-
 }
 
