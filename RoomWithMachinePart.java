@@ -1,33 +1,54 @@
+/**
+ * A class that represents a Room containing a machine part 
+ */
 public class RoomWithMachinePart extends Room{
     Part machinePart;
     private int number;
 
-    //contructor takes room number and obj or type part
+    /**
+     * Contrusctor for RoomWithMachinePart
+     * @param number
+     * @param obj
+     */
     public RoomWithMachinePart(int number, Part obj ){   
         super(number);
         this.machinePart = obj;
     }
 
-    //getter for machinePart
+    /**
+     * getter for Machine part
+     * @return Part
+     */
     public Part getMachinePart(){
         return machinePart;
     }
 
-    //collectPart takes a Player as parameter
+    /**
+     * 
+     * @param player
+     * @return Part
+     */
     public Part collectPart(Player player){
-        /*checks if the last Part
-        collected by the player sent as an argument is the one right before the it has. If so, it
-        returns the one it has (machinePart); otherwise, it returns null; */
-
+        if(player.lastMachinePartCollected().equals(machinePart.getNumber())){
+            return machinePart;
+        }else {
+            return null;
+        }
     }
     
-    //hasPart overrides hasPart of Room and returns true 
+    /**
+     * checks if room has machine part
+     * @return boolean
+     */
     @Override
     public boolean hasPart(){
         return true;
     }
 
-    //helpMessage returns a help message with room number 
+    /**
+     * Help message for player to indicate room number 
+     * @return String 
+     */
     @Override
     public String helpMessage(){
         return ("You are in room " +number);
