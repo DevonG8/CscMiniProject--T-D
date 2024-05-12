@@ -1,5 +1,6 @@
 /**
  * A class that represents a Room containing a machine part 
+ * @author Devon Gay & Antonio Cavanaugh Lillo
  */
 public class RoomWithMachinePart extends Room{
     Part machinePart;

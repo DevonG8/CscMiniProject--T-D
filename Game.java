@@ -4,7 +4,7 @@
  * It will be responsible for setting up the players, the rooms, the doors (pathways to and from each room)
  * as well as switching between players for each turn and ofcourse initiating the actual game.
  * 
- * @author Antonio Cavanaugh Lillo
+ * @author Antonio Cavanaugh Lillo & Devon Gay
  * @version 2.1
  * 
  */

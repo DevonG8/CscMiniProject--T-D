@@ -1,7 +1,7 @@
 /**
  * This class represents a player and manages
  * a players moves and status in the game
- * @author Devon Gay
+ * @author Devon Gay & Antonio Cavanaugh Lillo
  */
 public class Player {
     private int number;

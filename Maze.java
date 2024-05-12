@@ -28,7 +28,7 @@ import javafx.scene.control.TextField;
  * 
  */
 public class Maze extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
         Game game; 
@@ -90,7 +90,7 @@ public class Maze extends Application {
     //Needs a GUI builder
 
 
-
+   
     //Maybe error handling?
 
 

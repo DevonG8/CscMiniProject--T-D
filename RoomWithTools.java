@@ -5,7 +5,7 @@
  * 
  * It will contain no additional data members
  * 
- * @author Antonio Cavanaugh Lillo
+ * @author Antonio Cavanaugh Lillo & Devon Gay
  * @version 1.2
  *
  */

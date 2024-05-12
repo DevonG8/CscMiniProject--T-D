@@ -1,7 +1,7 @@
 /**
  * This class represents a machine part that can
  * be in a RoomWithMachinePart 
- * @author Devon Gay 
+ * @author Devon Gay & Antonio Cavanaugh Lillo
  */
 
 public class Part {

@@ -3,7 +3,7 @@
  * in which the workshop exists in the game for the players to build the
  * machine. 
  * 
- * @author Antonio Cavanaugh Lillo
+ * @author Antonio Cavanaugh Lillo & Devon Gay
  * @version 1.2
  * 
  * 
